@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.Toast;
 
 import android.os.Bundle;
 
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         String inputText = this.editableText.getText().toString();
         if(inputText.isEmpty()){
-            System.out.println("Empty!");
+            Toast toast = Toast.makeText(this, "No Entered Text!", Toast.LENGTH_SHORT);
+            toast.show();
 
             return;
         }
