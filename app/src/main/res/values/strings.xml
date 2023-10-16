@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MIPT-Praktikos-Darbas-2</string>
+    <string name="word_count">Word Count:</string>
+    <string name="edit_text_example">e.g. Hello World!</string>
 </resources>
