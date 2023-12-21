@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import android.os.Bundle;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import Utils.CountText;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,9 +49,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(selectedOption.equals(counterOptions[0])) {
-            String wordCount = CountText.getWordCount(inputText);
-            wordCount = "Word Count: " + wordCount;
-            textCounter.setText(wordCount);
+            Pattern pattern = Pattern.compile("\\w+");
+            Matcher matcher = pattern.matcher(inputText);
+
+            int wordCount = 0;
+            while (matcher.find()) {
+                wordCount++;
+            }
+
+            String wordCountString = "Word count: " + wordCount;
+            textCounter.setText(wordCountString);
         } else if (selectedOption.equals(counterOptions[1])){
             String charCount = CountText.getCharCount(inputText);
             charCount = "Character Count: " + charCount;
